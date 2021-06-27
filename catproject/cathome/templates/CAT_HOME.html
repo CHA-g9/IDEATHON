@@ -1,0 +1,429 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100&display=swap" rel="stylesheet">
+    <link rel = "stylesheet" type="text/css" href="{% static 'CSS/CAT_HOME.css' %}">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>고양이 커뮤니티</title>
+</head>
+<body>
+    <div class = "wrap">
+        <div class = "intro_bg">
+            <div class = "header" id = "link_header">
+                <div class = "LogoArea"><img src="{% static 'LOGO.png' %}" width="300" height="60" margin="0"></div>
+                <!--사용자가 입력하는 변수로 변경하기-->
+                <div class = "day_with">냥이와 N일차</div>
+                <ul class = "nav">
+                    <li><a href ="{% url 'schedule'%}">CALANDER</a></li>
+                    <li><a href ="#link_main_text1">SHOPPING</a></li>
+                    <li><a href ="#link_main_text2">CONTACT</a></li>
+                </ul>
+            </div>
+        </div>
+        <!--intro end-->
+        <div class ="main_text0" id="link_main_text0">
+            <ul class ="calander">
+                <li>
+                    <div class="to_do_list">
+                        <div class = "today_title"><h1>오늘의 할 일</h1></div>
+                        <br><br>
+                        <ul class = "today">
+                            <!--리스트도 사용자가 입력한 일정을 변수로 받을 수 있게 만들기-->
+                            <li>동물병원 예약하기</li>
+                            <li>고양이 장난감 쇼핑하기</li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                  <div class="tabs">
+                    <input id="schedule" type="radio" name="tab_item" checked>
+                    <label class="tab_item" for="schedule" id = "schedule_button">주요 일정</label>
+                    <input id="money" type="radio" name="tab_item">
+                    <label class="tab_item" for="money" id = "money_button">가계부</label>
+                    <div class="tab_content" id="schedule_content">
+                      <div id="calendar-wrap">
+                        <div id="calendar">
+                          <ul class="weekdays">
+                            <li>Sunday</li>
+                            <li>Monday</li>
+                            <li>Tuesday</li>
+                            <li>Wednesday</li>
+                            <li>Thursday</li>
+                            <li>Friday</li>
+                            <li>Saturday</li>
+                          </ul>
+                      
+                          <!-- Days from previous month -->
+                          <ul class="days">
+                            <li class="day other-month">
+                              <div class="date">30</div>              
+                            </li>
+                            <li class="day other-month">
+                              <div class="date">31</div>              
+                            </li>
+                            <!-- Days in current month -->
+                            <li class="day">
+                              <div class="date">1</div>
+                            </li>
+                            <li class="day">
+                              <div class="date">2</div>              
+                            </li>
+                            <li class="day">
+                              <div class="date">3</div>              
+                            </li>
+                            <li class="day">
+                              <div class="date">4</div>              
+                            </li>
+                            <li class="day">
+                              <div class="date">5</div>             
+                            </li>
+                          </ul>
+                      
+                          <!-- Row #2 -->
+                      
+                          <ul class="days">
+                            <li class="day">
+                              <div class="date">6</div>             
+                            </li>
+                            <li class="day">
+                              <div class="date">7</div>             
+                            </li>
+                            <li class="day">
+                              <div class="date">8</div>             
+                            </li>
+                            <li class="day">
+                              <div class="date">9</div>             
+                            </li>
+                            <li class="day">
+                              <div class="date">10</div>
+                              <div class="event">
+                                <div class="event-desc">
+                                  {{show_events.name}}
+                                  우리 냥 생일 
+                                </div>
+                                <div class="event-time">
+                                  12:00am to 11:59pm
+                                </div>
+                              </div>              
+                            </li>
+                            <li class="day">
+                              <div class="date">11</div>             
+                            </li>
+                            <li class="day">
+                              <div class="date">12</div>             
+                            </li>
+                          </ul>
+                      
+                          <!-- Row #3 -->
+                      
+                          <ul class="days">
+                            <li class="day">
+                              <div class="date">13</div>              
+                            </li>
+                            <li class="day">
+                              <div class="date">14</div>              
+                            </li>
+                            <li class="day">
+                              <div class="date">15</div>              
+                            </li>
+                            <li class="day">
+                              <div class="date">16</div>              
+                            </li>
+                            <li class="day">
+                              <div class="date">17</div><div class="event">
+                                <div class="event-desc">
+                                  정기 건강검진
+                                </div>
+                                <div class="event-time">
+                                  1:00pm to 3:00pm
+                                </div>
+                              </div>              
+                            </li>
+                            <li class="day">
+                              <div class="date">18</div>              
+                            </li>
+                            <li class="day">
+                              <div class="date">19</div>              
+                            </li>
+                          </ul>
+                      
+                            <!-- Row #4 -->
+                      
+                          <ul class="days">
+                            <li class="day">
+                              <div class="date">20</div>              
+                            </li>
+                            <li class="day">
+                              <div class="date">21</div>              
+                            </li>
+                            <li class="day">
+                              <div class="date">22</div>              
+                            </li>
+                            <li class="day">
+                              <div class="date">23</div>              
+                            </li>
+                            <li class="day">
+                              <div class="date">24</div>              
+                            </li>
+                            <li class="day">
+                              <div class="date">25</div>
+                              <div class="event">
+                                <div class="event-desc">
+                                  고양이 페어
+                                </div>
+                                <div class="event-time">
+                                  9:00am to 12:00pm
+                                </div>
+                              </div>              
+                            </li>
+                            <li class="day">
+                              <div class="date">26</div>              
+                            </li>
+                          </ul>
+                      
+                          <!-- Row #5 -->
+                      
+                          <ul class="days">
+                            <li class="day">
+                              <div class="date">27</div>              
+                            </li>
+                            <li class="day">
+                              <div class="date">28</div>
+                              <div class="event">
+                                <div class="event-desc">
+                                  털 미용 예약
+                                </div>
+                                <div class="event-time">
+                                  1:00pm to 3:00pm
+                                </div>
+                              </div>              
+                            </li>
+                            <li class="day">
+                              <div class="date">29</div>              
+                            </li>
+                            <li class="day">
+                              <div class="date">30</div>              
+                            </li>
+                            <!-- Next Month -->  
+                            <li class="day other-month">
+                              <div class="date">1</div>            
+                            </li>
+                            <li class="day other-month">
+                              <div class="date">2</div>             
+                            </li>
+                            <li class="day other-month">
+                              <div class="date">3</div>             
+                            </li>
+                          </ul>
+                      
+                        </div><!-- /. calendar -->
+                      </div><!-- /. wrap -->
+                    </div>
+                    <div class="tab_content" id="money_content">
+                      <div id="calendar-wrap">
+                        <div id="calendar">
+                          <ul class="weekdays">
+                            <li>Sunday</li>
+                            <li>Monday</li>
+                            <li>Tuesday</li>
+                            <li>Wednesday</li>
+                            <li>Thursday</li>
+                            <li>Friday</li>
+                            <li>Saturday</li>
+                          </ul>
+                      
+                          <!-- Days from previous month -->
+                      
+                          <ul class="days">
+                            <li class="day other-month">
+                              <div class="date">30</div>              
+                            </li>
+                            <li class="day other-month">
+                              <div class="date">31</div>              
+                            </li>
+                            <!-- Days in current month -->
+                            <li class="day">
+                              <div class="date">1</div>
+                            </li>
+                            <li class="day">
+                              <div class="date">2</div>              
+                            </li>
+                            <li class="day">
+                              <div class="date">3</div>              
+                            </li>
+                            <li class="day">
+                              <div class="date">4</div>              
+                            </li>
+                            <li class="day">
+                              <div class="date">5</div>             
+                            </li>
+                          </ul>
+                      
+                            <!-- Row #2 -->
+                      
+                          <ul class="days">
+                            <li class="day">
+                              <div class="date">6</div>             
+                            </li>
+                            <li class="day">
+                              <div class="date">7</div>             
+                            </li>
+                            <li class="day">
+                              <div class="date">8</div>             
+                            </li>
+                            <li class="day">
+                              <div class="date">9</div>             
+                            </li>
+                            <li class="day">
+                              <div class="date">10</div>
+                              <div class="event">
+                                <div class="event-desc">
+                                  고양이 생일 케이크
+                                </div>
+                                <div class="event-time">
+                                  50,000원
+                                </div>
+                              </div>              
+                            </li>
+                            <li class="day">
+                              <div class="date">11</div>             
+                            </li>
+                            <li class="day">
+                              <div class="date">12</div>             
+                            </li>
+                          </ul>
+                      
+                            <!-- Row #3 -->
+                      
+                          <ul class="days">
+                            <li class="day">
+                              <div class="date">13</div>              
+                            </li>
+                            <li class="day">
+                              <div class="date">14</div>              
+                            </li>
+                            <li class="day">
+                              <div class="date">15</div>              
+                            </li>
+                            <li class="day">
+                              <div class="date">16</div>              
+                            </li>
+                            <li class="day">
+                              <div class="date">17</div><div class="event">
+                                <div class="event-desc">
+                                  건강검진비
+                                </div>
+                                <div class="event-time">
+                                  250,000원
+                                </div>
+                              </div>              
+                            </li>
+                            <li class="day">
+                              <div class="date">18</div>              
+                            </li>
+                            <li class="day">
+                              <div class="date">19</div>              
+                            </li>
+                          </ul>
+                      
+                            <!-- Row #4 -->
+                      
+                          <ul class="days">
+                            <li class="day">
+                              <div class="date">20</div>              
+                            </li>
+                            <li class="day">
+                              <div class="date">21</div>              
+                            </li>
+                            <li class="day">
+                              <div class="date">22</div>              
+                            </li>
+                            <li class="day">
+                              <div class="date">23</div>              
+                            </li>
+                            <li class="day">
+                              <div class="date">24</div>              
+                            </li>
+                            <li class="day">
+                              <div class="date">25</div>
+                              <div class="event">
+                                <div class="event-desc">
+                                  주인님 장난감 및 사료
+                                </div>
+                                <div class="event-time">
+                                  100,000원
+                                </div>
+                              </div>              
+                            </li>
+                            <li class="day">
+                              <div class="date">26</div>              
+                            </li>
+                          </ul>
+                      
+                          <!-- Row #5 -->
+                      
+                          <ul class="days">
+                            <li class="day">
+                              <div class="date">27</div>              
+                            </li>
+                            <li class="day">
+                              <div class="date">28</div>
+                              <div class="event">
+                                <div class="event-desc">
+                                  털 미용 비용
+                                </div>
+                                <div class="event-time">
+                                  80,000원
+                                </div>
+                              </div>              
+                            </li>
+                            <li class="day">
+                              <div class="date">29</div>              
+                            </li>
+                            <li class="day">
+                              <div class="date">30</div>              
+                            </li>
+                            <!-- Next Month -->  
+                            <li class="day other-month">
+                              <div class="date">1</div>            
+                            </li>
+                            <li class="day other-month">
+                              <div class="date">2</div>             
+                            </li>
+                            <li class="day other-month">
+                              <div class="date">3</div>             
+                            </li>
+                          </ul>
+                        </div><!-- /. calendar -->
+                      </div><!-- /. wrap -->
+                    </div>
+                  </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class = "main_text2" id="link_main_text2">
+            <ul>
+                <li>
+                    <div><h2>CONTACT</h2></div>
+                    <br>
+                    <div>커뮤니티를 위한 이야기를 전해주세요</div>
+                    <div class = "more">더 알아보기</div>
+                </li>
+            </ul>
+        </div>
+        <footer>
+            <div>LOGO</div>
+            <div>
+                Made By. 멋쟁이 사자처럼 온라인 1조
+                <br>Addr. 서울특별시 종로구 명륜3가동 성균관로 25-2 학생회관 80208 
+                <br>COPYRIGHT SKKULIKELION. ALL RIGHT RESERVED.
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

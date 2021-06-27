@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100&display=swap" rel="stylesheet">
+    <link rel = "stylesheet" type="text/css" href="schedules.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>schedule</title>
+</head>
+<body>
+    <div class = "intro_bg">
+        <div class = "header" id = "link_header">
+            <div class = "LogoArea">LOGO</div>
+            <!--사용자가 입력하는 변수로 변경하기-->
+            <div class = "day_with">냥이와 N일차</div>
+            <ul class = "nav">
+                <li><a href ="#link_main_text0">CALANDER</a></li>
+                <li><a href ="#link_main_text1">SHOPPING</a></li>
+                <li><a href ="#link_main_text2">CONTACT</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class = "schedule" style="text-align: center;">
+        <h1>일정 생성</h1>
+        <br>
+        <form action="{% url 'make_schedule' %}">
+            <!-- {%csrf_token%} -->
+            <label for = "name">일정 이름 : </label>
+            <input type="text" name = "event_name" id = "name">
+            <br><br>
+            <label for = "date">날짜 및 시간:  </label>
+            <input type="datetime" name = "event_date" id = "date">
+            <br><br>
+            <label for = "place">장소 : </label>
+            <input type="text" name="event_place" id = "place">
+            <br><br>
+            <button type="submit">저장</button>
+        </form>
+        <a href="home">처음으로</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>일정 수정</title>
+</head>
+<body>
+    <h1>일정 수정</h1>
+    <form action="{% url 'update' edit_event.id %}" method="post">
+        {%csrf_token%}
+        일정명 : <input type="text" name = "event_name" value="{{edit_event.event_name}}">
+        <br><br>
+        일시 : <input type="datetime" name = "event_date" value="{{edit_event.event_date}}">
+        <br>
+        [입력 형식 : YYYY-MM-DD HH:MM]
+        <br><br>
+        장소 : <input type="text" name="event_place" value="{{edit_event.event_place}}">
+        <button type="submit">저장</button>
+    </form>
+    <a href="{% url 'home'%}" class = "home">처음으로</a>
+</body>
+</html>
