@@ -15,15 +15,31 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from cathome.views import base
+# from cathome.views import *
 from scheduleapp.views import *
+from shoppingapp.views import *
+from accountapp.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', base, name="home"),
+    path('home/', base, name="home"),
     path('schedule/', schedule_home, name="schedule"),
     path('new_schedule/', new_schedule, name = "new"),
     path('create_schedule/', create_schedule, name = "create"),
     path('edit/<str:id>', edit_schedule, name = "edit"),
     path('update/<str:id>', update_schedule, name = 'update'),
+    path('detail_schedules/<event_date>', show_schedule, name = "detail"),
+    path('delete/<str:id>', delete, name = "delete"),
+
+    path('shopping/', shop, name = 'shopping'),
+
+    path('account_book/', account_book, name = "account_book"),
+
+    path('', start1, name="start1"),
+    path('start1/', start1, name="start1"),
+    path('start2/', start2, name="start2"),
+    path('login/', login, name="login"),
+    path('signin/', signin, name="signin"),
+    path('start1/signin/', signin, name="signin"),
+    path('CAT_HOME/', CAT_HOME, name="CAT_HOME"),
 ]

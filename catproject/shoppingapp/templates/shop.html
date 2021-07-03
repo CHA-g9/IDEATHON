@@ -1,0 +1,140 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+  <link rel = "stylesheet" type="text/css" href="{% static 'CSS/shop.css' %}">
+  <title>SHOPPING</title>
+</head>
+  <body>
+    <div class = "intro_bg">
+      <div class = "header" id = "link_header">
+          <div class = "LogoArea"><a href="{% url 'home'%}" class = "home"><img src="{% static 'image/logo2_edit.png' %}" id = 'LOGO'></a></div>
+          <!--사용자가 입력하는 변수로 변경하기-->
+          <div class = "day_with">지냥이와 550일차</div>
+          <ul class = "nav">
+              <li><a href ="{% url 'schedule'%}">CALANDER</a></li>
+              <li><a href ="{% url 'shopping'%}">SHOPPING</a></li>
+              <li><a href ="#link_main_text2">CONTACT</a></li>
+          </ul>
+      </div>
+    </div>
+    <div class="main_text1">
+        <div class="icon_food">
+          <h2>FOOD</h2>
+          <ul>
+            <li></li>
+            <li>
+              <a href=" https://www.catpang.com/shop/goods/goods_list.php?category=001001">
+              <img src="{% static 'image/1.png' %}" alt="사료" title="사료"></a>
+              <br>사료
+            </li>
+            <li>
+              <a href=" https://www.catpang.com/shop/goods/goods_list.php?category=001002">
+              <img src="{% static 'image/2.png' %}" alt="캔/간식" title="캔/간식"> </a>
+              <br>캔/간식
+            </li>
+            <li>
+              <a href="https://www.catpang.com/shop/goods/goods_list.php?category=001008">
+              <img src="{% static 'image/8.png' %}" alt="식기" title="식기"></a>
+              <br>식기
+            </li>
+            <li></li>
+          </ul>
+        </div>
+        
+        <div class="icon_care">
+          <h2>CARE</h2>
+          <ul>
+            <li></li>
+            <li>
+              <a href="https://www.catpang.com/shop/goods/goods_list.php?category=001003">
+              <img src="{% static 'image/3.png' %}" alt="모래/탈취제" title="모래/탈취제"> </a>
+              <br>모래/탈취제
+            </li>
+            <li>
+              <a href=" https://www.catpang.com/shop/goods/goods_list.php?category=001002">
+              <img src="{% static 'image/4.png' %}" alt="화장실/매트" title="화장실/매트"> </a>
+              <br>화장실/매트
+            </li>
+            <li>
+              <a href="https://www.catpang.com/shop/goods/goods_list.php?category=001008">
+              <img src="{% static 'image/5.png' %}" alt="건강관리" title="건강관리"> </a>
+              <br>건강관리
+            </li>
+            
+            <li>
+              <a href="https://www.catpang.com/shop/goods/goods_list.php?category=001006">
+              <img src="{% static 'image/6.png' %}" alt="목욕/미용" title="목욕/미용"> </a>
+              <br>목욕/미용
+            </li>
+            <li></li>
+          </ul>
+        </div>   
+          
+        <div class="icon_play">
+          <h2>PLAY</h2>
+          <ul>
+          <li></li>
+          <li>
+            <a href="https://www.catpang.com/shop/goods/goods_list.php?category=001007">
+            <img src="{% static 'image/7.png' %}" alt="장난감" title="장난감"> </a>
+            <br>장난감
+          </li>
+          <li>
+            <a href="https://www.catpang.com/shop/goods/goods_list.php?category=001009">
+            <img src="{% static 'image/9.png' %}" alt="스크래쳐/캣타워" title="스크래쳐/캣타워"> </a>
+            <br>스크래쳐/캣타워
+          </li>
+          <li></li>
+          </ul>
+        </div>
+
+        <div class="icon_house">
+          <h2>HOUSE</h2>
+          <ul>
+            <li></li>
+            <li>
+              <a href="https://www.catpang.com/shop/goods/goods_list.php?category=001011">
+              <img src="{% static 'image/11.png' %}" alt="이동장/하네스" title="이동장/하네스"> </a>
+              <br>이동장/하네스
+            </li>
+            <li>
+              <a href="https://www.catpang.com/shop/goods/goods_list.php?category=001010">
+              <img src="{% static 'image/10.png' %}" alt="하우스/쿠션" title="하우스/쿠션"> </a>
+              <br>하우스/쿠션
+            </li>
+            <li></li>
+          </ul>
+        </div>
+        <div class = "return">
+          <a href="{% url 'home'%}">처음으로</a>
+        </div>
+    </div>
+  
+    <div class="main_text2" id="link_main_text2">
+      <ul>
+        <li>
+          <div><h2>CONTACT</h2></div>
+          <div>커뮤니티를 위한 이야기를 전해주세요</div>
+          <div class="more2">더 알아보기</div>
+        </li>
+        <li></li>
+      </ul>
+    </div>
+    <footer>
+        <div>
+          <img src = "{% static 'image/LOGO_edit.png'%}">
+        </div>
+        <div>
+          Made By. 멋쟁이 사자처럼 온라인 1조<br>
+          Addr. 서울특별시 종로구 명륜3가동 성균관로 25-2 학생회관 80208<br>
+          COPYRIGHT SKKULIKELION. ALL RIGHT RESERVED.
+       </div>
+    </footer>
+  </body>
+</html>

@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'cathome.apps.CathomeConfig',
     'scheduleapp.apps.ScheduleappConfig',
+    'shoppingapp.apps.ShoppingappConfig',
+    'accountapp.apps.AccountappConfig',
 ]
 
 MIDDLEWARE = [
@@ -121,7 +123,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'cathome/static')]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'cathome/static', 'scheduleapp/static', 'shoppingapp/static', 'accountapp/static')]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

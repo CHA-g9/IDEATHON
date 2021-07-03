@@ -1,24 +1,64 @@
+{%load static%}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <link rel = "stylesheet" type="text/css" href="{% static 'CSS/edit.css' %}">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>일정 수정</title>
+    
 </head>
 <body>
-    <h1>일정 수정</h1>
-    <form action="{% url 'update' edit_event.id %}" method="post">
-        {%csrf_token%}
-        일정명 : <input type="text" name = "event_name" value="{{edit_event.event_name}}">
-        <br><br>
-        일시 : <input type="datetime" name = "event_date" value="{{edit_event.event_date}}">
-        <br>
-        [입력 형식 : YYYY-MM-DD HH:MM]
-        <br><br>
-        장소 : <input type="text" name="event_place" value="{{edit_event.event_place}}">
-        <button type="submit">저장</button>
-    </form>
-    <a href="{% url 'home'%}" class = "home">처음으로</a>
+    <div class = "intro_bg">
+        <div class = "header" id = "link_header">
+            <div class = "LogoArea"><a href="{% url 'home'%}" class = "home"><img src="{% static 'image/logo2_edit.png' %}"></a></div>
+            <!--사용자가 입력하는 변수로 변경하기-->
+            <div class = "day_with">지냥이와 550일차</div>
+            <ul class = "nav">
+                <li><a href ="{% url 'schedule'%}">CALANDER</a></li>
+                <li><a href ="#link_main_text1">SHOPPING</a></li>
+                <li><a href ="#link_main_text2">CONTACT</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class = "main">
+        <h1>일정 수정</h1>
+        <form action="{% url 'update' edit_event.id %}" method="post">
+            {%csrf_token%}
+            일정명 : <input type="text" name = "event_name" value="{{edit_event.event_name}}">
+            <br><br>
+            일시 : <input type="datetime" name = "event_date" value="{{edit_event.event_date}}">
+            <br>
+            [입력 형식 : YYYY-MM-DD HH:MM]
+            <br><br>
+            장소 : <input type="text" name="event_place" value="{{edit_event.event_place}}">
+            <br>
+            <button type="submit">저장</button>
+        </form>
+    </div>
+    <div class="main_text2" id="link_main_text2">
+        <ul>
+          <li>
+            <div><h2>CONTACT</h2></div>
+            <div>커뮤니티를 위한 이야기를 전해주세요</div>
+            <div class="more2">더 알아보기</div>
+          </li>
+          <li></li>
+        </ul>
+      </div>
+      <footer>
+          <div>
+            LOGO
+          </div>
+          <div>
+            Made By. 멋쟁이 사자처럼 온라인 1조<br>
+            Addr. 서울특별시 종로구 명륜3가동 성균관로 25-2 학생회관 80208<br>
+            COPYRIGHT SKKULIKELION. ALL RIGHT RESERVED.
+         </div>
+      </footer>
 </body>
 </html>

@@ -1,131 +1,97 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <link rel = "stylesheet" type="text/css" href="{% static 'CSS/schedules.css' %}">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CALANDER</title>
-    <style>
-        *{
-        font-family: 'Noto Sans KR', sans-serif;
-        list-style: none;
-        text-decoration: none;
-        border-collapse: collapse;
-        margin: 0px;
-        padding: 0px;
-        color: black;
-        }
-        h1 {
-            font-size: 40px;
-            font-weight: 100;
-        }
-        .contents1{
-            font-size: 20px;
-            font-weight: lighter;
-        }
-        .contents1_bold{
-            font-size: 18px;
-            font-weight: bold;
-        }
-        .contents3{
-            font-size: 14px;
-            font-weight: 100;
-        }
-        .result{
-            font-size: 24px;
-        }
-        .intro_bg{
-            /*인트로 부분 배경화면 지정*/
-            background-color: #FFC7C7;
-            width: 100%;
-            height: 100%;
-        }
-        .header{
-            /* 인트로 부분 메뉴 디자인*/
-            display: grid;
-            grid-template-columns: 1fr 2fr 2fr;
-            width: 1280px;
-            margin:auto;
-            height: 86px;
-        }
-        .LogoArea{
-            /*로고 입력 창 주변 디자인*/
-            /*width: 200px;
-            height: 40px;*/
-            margin-top: 24px;
-            color: #fff;
-        }
-        .day_with{
-            /*width: 300px;
-            height: 40px;*/
-            margin-top: 24px;
-            color: #fff;
-            text-align: center;
-        }
-        .nav {
-            /*상단 바 디자인*/
-            display: flex;
-            justify-content: flex-end;
-            line-height: 86px;
-            /*width: calc(1280px - 300px);*/
-             /*색 넣어서 영역 구분 확인하기*/
-        }
-        .nav > li{
-            margin-left: 84px;
-        }
-        .nav > li > a{
-            color: #fff;
-        }
-        .schedule{
-            padding-top: 20px;
-            background: #f6f6f6;
-            height: 640px;
-        }
-        .schedule > a:link, a:visited {
-            background-color: white;
-            color: #AAA;
-            border: 2px solid #AAA;
-            padding: 5px 10px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 15px;
-        }
-        .schedule > a:hover, a:active {
-          background-color: #FFC7C7;
-          border: 2px solid #FFC7C7;
-          color: white;
-          font-size: 15px;
-        }
-    </style>
+    
 </head>
 <body>
     <div class = "intro_bg">
         <div class = "header" id = "link_header">
-            <div class = "LogoArea">LOGO</div>
+            <div class = "LogoArea"><a href="{% url 'home'%}" class = "home"><img src="{% static 'image/logo2_edit.png' %}"></a></div>
             <!--사용자가 입력하는 변수로 변경하기-->
-            <div class = "day_with">냥이와 N일차</div>
+            <div class = "day_with">지냥이와 550일차</div>
             <ul class = "nav">
-                <li><a href ="{% url 'schedule'%}">CALANDER</a></li>
-                <li><a href ="#link_main_text1">SHOPPING</a></li>
-                <li><a href ="#link_main_text2">CONTACT</a></li>
+              <li>
+                <a href = "#">CALANDER</a>
+                <ul>
+                  <li><a href ="{% url 'schedule'%}">SCHEDULE</a></li>
+                  <li><a href ="{% url 'account_book'%}">ACCOUNT BOOK</a></li>
+                </ul>
+              </li>
+              <li><a href ="{% url 'shopping'%}">SHOPPING</a></li>
+              <li><a href ="#link_main_text2">CONTACT</a></li>
             </ul>
         </div>
     </div>
     <div class = "schedule" style="text-align: center;">
         <h1>일정 목록</h1>
-        <p>
-            {% for event in schedules %}
-                {{event.id}}<br>
-                <h3>{{event.event_name}}</h3>
-                일시 : {{event.event_date}} <br>
-                <a href = "{% url 'edit' event.id %}">수정</a>
-                <br>
-            {% endfor %}
-            <br>
+        <div class="schedule_content">
+          <div class="schedule_table">
+            <div></div>
+            <table class="table">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">일정명</th>
+                  <th scope="col">날짜</th>
+                  <th scope="col">장소</th>
+                  <th scope="col">삭제/수정</th>
+                  <th scope="col">달력보기</th>
+                </tr>
+              </thead>
+          
+              <tbody>
+                {% for event in schedules %}
+                <tr>
+                  <th scope="row">#</th>
+                  <td>{{event.event_name}}</td>
+                  <td>{{event.event_date}}</td>
+                  <td>{{event.event_place}}</td>
+                  <td class = "edit">
+                    <a href="{% url 'delete' event.id %}"><button><span>삭제</span></button></a>
+                    <a href="{% url 'edit' event.id %}"><button><span>수정</span></button></a>
+                  </td>
+                  <td class = "edit"><a href="{% url 'detail' event.event_date %}"><button><span>달력보기</span></button></a></td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+            <div></div>
+          </div>
+        </div>
+        <div class="page_move">
+          <div class="links">
             <a href = "{% url 'new'%}" class = "create">일정 생성</a>
-            <a href="{% url 'home'%}" class = "home">처음으로</a>
-        </p>
+            
+          </div>
+        </div>
     </div>
+    <div class="main_text2" id="link_main_text2">
+        <ul>
+          <li>
+            <div><h2>CONTACT</h2></div>
+            <div>커뮤니티를 위한 이야기를 전해주세요</div>
+            <div class="more2">더 알아보기</div>
+          </li>
+          <li></li>
+        </ul>
+      </div>
+      <footer>
+          <div>
+            <img src = "{% static 'image/LOGO_edit.png'%}">
+          </div>
+          <div>
+            Made By. 멋쟁이 사자처럼 온라인 1조<br>
+            Addr. 서울특별시 종로구 명륜3가동 성균관로 25-2 학생회관 80208<br>
+            COPYRIGHT SKKULIKELION. ALL RIGHT RESERVED.
+         </div>
+      </footer>
 </body>
 </html>

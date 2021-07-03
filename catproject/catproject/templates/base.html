@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <link rel = "stylesheet" type="text/css" href="{% static 'CSS/BASE.css' %}">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>고양이 커뮤니티</title>
+</head>
+<body>
+    <div class = "wrap">
+        <div class = "intro_bg">
+            <div class = "header" id = "link_header">
+                <div class = "LogoArea"><img src="{% static 'image/logo2_edit.png' %}"></div>
+                <!--사용자가 입력하는 변수로 변경하기-->
+                <div class = "day_with">냥이와 \차</div>
+                <ul class = "nav">
+                    <li><a href ="{% url 'schedule'%}">CALANDER</a></li>
+                    <li><a href ="{% url 'shopping'%}">SHOPPING</a></li>
+                    <li><a href ="#link_main_text2">CONTACT</a></li>
+                </ul>
+            </div>
+        </div>
+        <!--intro end-->
+        {% block content %}
+        {% endblock %}
+        <div class = "main_text2" id="link_main_text2">
+            <ul>
+                <li>
+                    <div><h2>CONTACT</h2></div>
+                    <br>
+                    <div>커뮤니티를 위한 이야기를 전해주세요</div>
+                    <div class = "more">더 알아보기</div>
+                </li>
+            </ul>
+        </div>
+        <footer>
+            <div>LOGO</div>
+            <div>
+                Made By. 멋쟁이 사자처럼 온라인 1조
+                <br>Addr. 서울특별시 종로구 명륜3가동 성균관로 25-2 학생회관 80208 
+                <br>COPYRIGHT SKKULIKELION. ALL RIGHT RESERVED.
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
